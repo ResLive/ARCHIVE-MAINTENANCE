@@ -4663,7 +4663,7 @@ EXEC dbo.sp_executesql @statement = N'
 	
 		SET @RowCount = @ReturnRecordCount
 		
-		IF (@BatchSize = 0) 
+		IF (@BatchSize < 1) 
 			SET @BatchSize = 1
 			
 		EXEC aspnet_Archive_Maintenance_Booking @AccountId,@JobType,@Key,@StartDate,@EndDate,@BatchSize,@RowCount OUT,@ErrorProcedure OUT,@ErrorLine OUT,@ErrorNumber OUT,@ErrorMessage OUT											
